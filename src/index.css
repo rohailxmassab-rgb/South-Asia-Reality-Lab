@@ -1,0 +1,83 @@
+@import url('https://fonts.cdnfonts.com/css/general-sans');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "General Sans", ui-sans-serif, system-ui, sans-serif;
+  --color-background: #F8F7F4;
+  --color-panel: #EFEDE7;
+  --color-primary: #1A1A1A;
+  --color-secondary: #6B6B6B;
+  --color-border: #DCD9D0;
+  --color-lavender: #B2A4FF;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-primary font-sans font-light selection:bg-panel;
+    letter-spacing: 0.01em;
+  }
+  
+  h1, h2, h3, h4 {
+    @apply font-medium tracking-tight;
+  }
+}
+
+.custom-shadow {
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+}
+
+.staggered-list > * {
+  animation: slideUp 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes slide {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(300%); }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.markdown-body h1, .markdown-body h2, .markdown-body h3 {
+  @apply font-bold mt-4 mb-2;
+}
+
+.markdown-body h3 {
+  @apply text-[11px] uppercase tracking-wider text-secondary;
+}
+
+.markdown-body p {
+  @apply mb-2;
+}
+
+.markdown-body ul {
+  @apply list-none space-y-1 mb-3;
+}
+
+.markdown-body li {
+  @apply relative pl-4 text-secondary;
+}
+
+.markdown-body li::before {
+  content: "•";
+  @apply absolute left-0 text-primary font-bold;
+}
+
+.markdown-body strong {
+  @apply font-bold text-primary;
+}

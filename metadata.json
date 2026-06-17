@@ -1,0 +1,6 @@
+{
+  "name": "South Asian Reality Lab",
+  "description": "A multi-agent societal intelligence system for analyzing South Asian education, healthcare, infrastructure, and economic sectors.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
