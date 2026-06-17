@@ -266,8 +266,11 @@ export default function App() {
         ...prev,
         orchestrator: {
            system_score: domainData.metrics,
-           bottlenecks_identified: domainData.problems,
-           final_insights: domainData.recommendations
+           critical_problems: domainData.problems,
+           recommendations: domainData.recommendations,
+           final_insights: [
+              `Synthesized intelligence for ${selectedCountry} • ${selectedSector} indicates structural vulnerabilities.`
+           ]
         },
         status: 'success',
         country: selectedCountry,
