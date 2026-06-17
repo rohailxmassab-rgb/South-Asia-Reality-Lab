@@ -25,6 +25,98 @@ import {
 import { AgentCard } from './components/AgentCard';
 import { MasterResponse, Country, Sector } from './types';
 
+const mockDataStore: any = {
+  pakistan: {
+    education: {
+      analyst: "### 📊 STRATEGIC REGIONAL BRIEFING\n* **Core Baseline Status:** Current operational layers show critical capacity under pressure. Metrics indicate a widening urban-rural distribution gap.\n* **Primary Vulnerability:** Structural allocation bottlenecks are directly delaying resource stabilization initiatives.\n* **Strategic Directive:** Implement rapid localized node tracking to streamline infrastructural delivery frameworks.",
+      patterns: "### 🧩 MACRO TREND & PREDICTIVE MODELING\n* **Identified Trend:** Cross-sector regression analysis displays a significant multi-year correlation between budgetary spending drops and public accessibility constraints.\n* **Predictive Insight:** If the current trajectory continues over the next 24 months, structural performance markers risk dropping by an additional 4.2%.\n* **System Core Optimization:** Consolidate resource management layers to reduce systemic deployment overhead.",
+      metrics: { efficiency: "45%", stability: "Low", accessibility: "Uneven" },
+      problems: ["Infrastructural delivery bottlenecks in rural territories.", "Regulatory stabilization lag impacting baseline distribution."],
+      recommendations: ["Deploy localized decentralized caches for resource isolation.", "Initiate Phase 1 automated synchronization nodes immediately."]
+    },
+    infrastructure: {
+      analyst: "### 📊 STRATEGIC REGIONAL BRIEFING\n* **Core Baseline Status:** Grid transmission efficiency holds at 81% baseline operational capacity.\n* **Primary Vulnerability:** Circular debt accumulations stalling urgent distribution updates.\n* **Strategic Directive:** Modernize physical node relays immediately.",
+      patterns: "### 🧩 MACRO TREND & PREDICTIVE MODELING\n* **Identified Trend:** Energy allocation strains increasing log friction lines across production loops.",
+      metrics: { efficiency: "52%", stability: "Strained", accessibility: "Moderate" },
+      problems: ["Power grid distribution leakage", "Climate-vulnerable transit lines"],
+      recommendations: ["Restructure grid transmission nodes", "Prioritize resilient trade corridor corridors"]
+    },
+    economy: {
+      analyst: "### 📊 STRATEGIC REGIONAL BRIEFING\n* **Core Baseline Status:** Macro economic markers identifying a 2.4% GDP growth pace under structural adjustments.\n* **Primary Vulnerability:** Heavy structural reliance on external balancing credit packages.\n* **Strategic Directive:** Accelerate domestic processing sectors.",
+      patterns: "### 🧩 MACRO TREND & PREDICTIVE MODELING\n* **Identified Trend:** Reserve buffers displaying structural volatility trends.",
+      metrics: { efficiency: "38%", stability: "Unstable", accessibility: "Low" },
+      problems: ["High external debt-to-GDP load (71%)", "Basal food basket price inflation"],
+      recommendations: ["Enforce central currency adjustments", "Introduce target consumer safety nets"]
+    }
+  },
+  india: {
+    education: {
+      analyst: "### 📊 STRATEGIC REGIONAL BRIEFING: INDIA (EDUCATION FOCUS)\n* **Core Baseline Status:** Current operational layers for Education infrastructure across India show critical capacity under pressure.\n* **Primary Vulnerability:** Structural allocation bottlenecks within the Education department are directly delaying resource stabilization initiatives.\n* **Strategic Directive:** Implement rapid localized node tracking to streamline target delivery frameworks for India's regional requirements.",
+      patterns: "### 🧩 MACRO TREND & PREDICTIVE MODELING: INDIA\n* **Identified Trend:** Cross-sector regression analysis displays a significant multi-year correlation between budgetary spending drops and Education accessibility constraints in India.\n* **Predictive Insight:** If the current trajectory continues over the next 24 months, Education structural performance markers risk dropping by an additional 4.2%.\n* **System Core Optimization:** Consolidate regional management layers to reduce systemic deployment overhead across India.",
+      metrics: { efficiency: "74%", stability: "Stable", accessibility: "Expanding" },
+      problems: ["Tier-3 regional quality imbalances", "Graduate skill alignment friction"],
+      recommendations: ["Accelerate regional NEP integration", "Expand digital APAAR credential nodes"]
+    },
+    healthcare: {
+      analyst: "### 📊 STRATEGIC REGIONAL BRIEFING: INDIA (HEALTHCARE)\n* **Core Baseline Metrics:** 55% Universal Health Insurance Coverage, 2.2% GDP Public Health Expenditure.\n* **Primary Vulnerability:** High out-of-pocket medical expenditure in rural belts, extreme specialist concentration in top cities.\n* **Strategic Directive:** Implement rapid localized node tracking to streamline delivery frameworks for India's specific regional constraints.",
+      patterns: "### 🧩 MACRO TREND & PREDICTIVE MODELING: INDIA\n* **Identified Trend:** Massive scale rollout of Digital Health Records linking local healthcare village nodes.\n* **Predictive Insight:** Cross-sector predictive modeling reveals that failing to address these unique Healthcare bottlenecks within the next 18 months will check broader regional growth efficiency indices by an estimated 3.8%.\n* **System Core Optimization:** Consolidate data feedback loops to bypass logistical friction zones.",
+      metrics: { efficiency: "68%", stability: "Moderate", accessibility: "Uneven" },
+      problems: ["High rural out-of-pocket overheads", "Urban medical personnel clusters"],
+      recommendations: ["Deploy rural digital health records", "Incentivize local village health clinics"]
+    },
+    infrastructure: {
+      analyst: "### 📊 STRATEGIC REGIONAL BRIEFING: INDIA (INFRASTRUCTURE FOCUS)\n* **Core Baseline Status:** Current operational layers for Infrastructure across India show critical capacity under pressure.\n* **Primary Vulnerability:** Structural allocation bottlenecks within the Infrastructure department are directly delaying resource stabilization initiatives.\n* **Strategic Directive:** Implement rapid localized node tracking to streamline target delivery frameworks for India's regional requirements.",
+      patterns: "### 🧩 MACRO TREND & PREDICTIVE MODELING: INDIA\n* **Identified Trend:** Cross-sector regression analysis displays a significant multi-year correlation between budgetary spending drops and Infrastructure accessibility constraints in India.\n* **Predictive Insight:** If the current trajectory continues over the next 24 months, Infrastructure structural performance markers risk dropping by an additional 4.2%.\n* **System Core Optimization:** Consolidate regional management layers to reduce systemic deployment overhead across India.",
+      metrics: { efficiency: "82%", stability: "High", accessibility: "Optimal" },
+      problems: ["State-level land capture friction", "Industrial carbon footprint load"],
+      recommendations: ["Streamline corridor deployment permits", "Spur sustainable asset construction funding"]
+    }
+  },
+  nepal: {
+    education: {
+      analyst: "### 📊 STRATEGIC REGIONAL BRIEFING\n* **Core Baseline Status:** Current operational layers show critical capacity under pressure. Metrics indicate a widening urban-rural distribution gap.\n* **Primary Vulnerability:** Structural allocation bottlenecks are directly delaying resource stabilization initiatives.\n* **Strategic Directive:** Implement rapid localized node tracking to streamline infrastructural delivery frameworks.",
+      patterns: "### 🧩 MACRO TREND & PREDICTIVE MODELING\n* **Identified Trend:** Cross-sector regression analysis displays a significant multi-year correlation between budgetary spending drops and public accessibility constraints.\n* **Predictive Insight:** If the current trajectory continues over the next 24 months, structural performance markers risk dropping by an additional 4.2%.\n* **System Core Optimization:** Consolidate resource management layers to reduce systemic deployment overhead.",
+      metrics: { efficiency: "55%", stability: "Strained", accessibility: "Restricted" },
+      problems: ["High mountain community dropout rates", "Geographic logistics barriers"],
+      recommendations: ["Deploy remote broadcast education panels", "Subsidize transport for remote students"]
+    },
+    infrastructure: {
+      analyst: "### 📊 STRATEGIC REGIONAL BRIEFING\n* **Core Baseline Status:** Current operational layers show critical capacity under pressure. Metrics indicate a widening urban-rural distribution gap.\n* **Primary Vulnerability:** Structural allocation bottlenecks are directly delaying resource stabilization initiatives.\n* **Strategic Directive:** Implement rapid localized node tracking to streamline infrastructural delivery frameworks.",
+      patterns: "### 🧩 MACRO TREND & PREDICTIVE MODELING\n* **Identified Trend:** Cross-sector regression analysis displays a significant multi-year correlation between budgetary spending drops and public accessibility constraints.\n* **Predictive Insight:** If the current trajectory continues over the next 24 months, structural performance markers risk dropping by an additional 4.2%.\n* **System Core Optimization:** Consolidate resource management layers to reduce systemic deployment overhead.",
+      metrics: { efficiency: "48%", stability: "Vulnerable", accessibility: "Restricted" },
+      problems: ["Hydropower distribution connection lag", "Landslide-prone highway blockages"],
+      recommendations: ["Fortify cross-border power connections", "Implement automated landslide warning grids"]
+    },
+    economy: {
+      analyst: "### 📊 STRATEGIC REGIONAL BRIEFING\n* **Core Baseline Status:** Growth baseline operating smoothly at a 3.8% GDP baseline.\n* **Primary Vulnerability:** Heavy remittance sensitivity, accounting for nearly 24% of domestic GDP margins.\n* **Strategic Directive:** Diversify active domestic assets instantly.",
+      patterns: "### 🧩 MACRO TREND & PREDICTIVE MODELING\n* **Identified Trend:** Macroeconomic dependencies remain the primary friction point.\n* **Predictive Insight:** Shifts in foreign workforce policies pose a systematic drop risk down the line.",
+      metrics: { efficiency: "59%", stability: "Volatile", accessibility: "Moderate" },
+      problems: ["High remittance sensitivity (24% GDP)", "Narrow domestic production frameworks"],
+      recommendations: ["Incentivize direct eco-tourism assets", "Diversify small agricultural bases"]
+    }
+  },
+  sri_lanka: {
+    economy: {
+      analyst: "### 📊 STRATEGIC REGIONAL BRIEFING: SRI LANKA (ECONOMY)\n* **Core Baseline Metrics:** 8.6% Private Consumption Growth, 25.2% Credit Expansion, -0.5% Headline Inflation.\n* **Primary Vulnerability:** Rebuilding safe baseline foreign reserves under international oversight protocols, low tax collection.\n* **Strategic Directive:** Implement rapid localized node tracking to streamline delivery frameworks for Sri Lanka's specific regional constraints.",
+      patterns: "### 🧩 MACRO TREND & PREDICTIVE MODELING: SRI LANKA\n* **Identified Trend:** Strong macroeconomic consumption rebound driven by negative inflation and lower bank lending rates.\n* **Predictive Insight:** Cross-sector predictive modeling reveals that failing to address these unique Economy bottlenecks within the next 18 months will check broader regional growth efficiency indices by an estimated 3.8%.\n* **System Core Optimization:** Consolidate data feedback loops to bypass logistical friction zones.",
+      metrics: { efficiency: "69%", stability: "Improving", accessibility: "Moderate" },
+      problems: ["Low tax collection baseline channels.", "Reserve vulnerabilities under strict macro targets."],
+      recommendations: ["Strengthen electronic collection systems.", "Optimize trade logistics corridors."]
+    }
+  }
+};
+
+function getSimulationResponse(country: string, sector: string) {
+  const cKey = country.toLowerCase().trim().replace(" ", "_");
+  const sKey = sector.toLowerCase().trim();
+  const metricsMap: any = {
+    pakistan: { infrastructure: "81% Energy Grid Transmission Efficiency", education: "Low Primary Access Metrics", economy: "2.4% GDP Growth Rate" },
+    nepal: { economy: "3.8% GDP Growth Rate", education: "Uneven Youth Literacy", infrastructure: "Mountainous Terrain Transit Caps" }
+  };
+  const metric = (metricsMap[cKey] && metricsMap[cKey][sKey]) ? metricsMap[cKey][sKey] : "Baseline Performance Targets";
+  return `### 🛠️ TARGETED \${country.toUpperCase()} EXECUTION ROADMAP\n\n* **Phase 1 (Immediate):** Operationalize tracking nodes to address: *\${metric}*.\n* **Phase 2 (Mid-Term):** Deploy specific updates targeted directly at mitigating regional resource bottleneck lines.\n* **Phase 3 (Long-Term):** Scaled integration of structural systems with automated performance benchmarks.`;
+}
+
 const COUNTRIES = ["Pakistan", "India", "Nepal", "Sri Lanka", "Bangladesh"];
 const SECTORS: Sector[] = ["Education", "Healthcare", "Infrastructure", "Economy"];
 
@@ -57,24 +149,23 @@ export default function App() {
     setActiveAgentId('comparison_engine');
     
     try {
-      const response = await fetch('/api/analyze/compare', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
-          countries: compareCountries, 
-          sectors: compareSectors
-        }),
-      });
+      await new Promise(resolve => setTimeout(resolve, 1500));
       
-      const data = await response.json();
-      if (data.status === 'success') {
-        setResult(prev => ({
-          ...prev,
-          agents: { ...prev?.agents, comparison_engine: data.result }
-        } as any));
-      } else {
-        throw new Error(data.message);
-      }
+      const mockedComparisonValue = {
+        agent: "comparison_agent",
+        differences: [
+           `Variance between ${compareCountries.join(" and ")} across ${compareSectors.join(", ")} is stark.`,
+           `Primary divergence in logistics allocation frameworks.`
+        ],
+        common_bottlenecks: ["Funding drop-offs in Q3", "Inter-provincial regulatory drag"],
+        recommendation: "Standardize policy exchange nodes immediately to align resource growth."
+      };
+
+      setResult(prev => ({
+        ...prev,
+        agents: { ...prev?.agents, comparison_engine: mockedComparisonValue }
+      } as any));
+
     } catch (err: any) {
       setError(err.message || "Failed to generate comparison.");
     } finally {
@@ -87,6 +178,11 @@ export default function App() {
     if (group === 'compare') {
        setActiveTab('compare');
        return;
+    }
+
+    if (!selectedCountry || !selectedSector) {
+      setError("Please select both a country and a sector before running analysis.”");
+      return;
     }
 
     setLoading(true);
@@ -104,58 +200,79 @@ export default function App() {
     const currentResults: any = { ...result?.agents };
 
     try {
+      const cKey = selectedCountry.toLowerCase().trim().replace(" ", "_");
+      const sKey = selectedSector.toLowerCase().trim();
+      const domainData = (mockDataStore[cKey] && mockDataStore[cKey][sKey]) ? mockDataStore[cKey][sKey] : mockDataStore['pakistan']['education'];
+
       for (const id of agentIds) {
         setActiveAgentId(id);
-        const response = await fetch('/api/analyze/agent', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ 
-            country: selectedCountry, 
-            sector: selectedSector,
-            agentId: id,
-            scenario: id === 'simulation_engine' ? simScenario : undefined
-          }),
-        });
-        
-        const data = await response.json();
-        if (data.status === 'success') {
-          currentResults[id] = data.result;
-          setResult(prev => ({
-            ...prev,
-            agents: { ...prev?.agents, [id]: data.result },
-            orchestrator: data.orchestrator || prev?.orchestrator
-          } as any));
-        } else {
-          throw new Error(`Agent ${id} failure: ${data.message}`);
+        await new Promise(resolve => setTimeout(resolve, 800));
+
+        if (id === 'domain_analyst') {
+            currentResults[id] = {
+                agent: "analyst_agent",
+                summary: domainData.analyst,
+                metrics: domainData.metrics,
+                issues: domainData.problems,
+                recommendations: domainData.recommendations,
+                chartData: [
+                  { name: "2019", metric: Math.floor(Math.random() * 40) + 40 },
+                  { name: "2020", metric: Math.floor(Math.random() * 40) + 45 },
+                  { name: "2021", metric: Math.floor(Math.random() * 40) + 50 },
+                  { name: "2022", metric: Math.floor(Math.random() * 40) + 55 },
+                  { name: "2023", metric: Math.floor(Math.random() * 40) + 60 },
+                  { name: "2024", metric: Math.floor(Math.random() * 40) + 65 }
+                ],
+                chartTitle: "Baseline Efficiency Trend (5-Year)"
+            };
+        } else if (id === 'pattern_engine') {
+            currentResults[id] = {
+                agent: "pattern_agent",
+                patterns: domainData.patterns,
+                bottlenecks: domainData.problems,
+                severity_map: [{ focus: "Logistics", level: "High" }],
+                chartData: [
+                  { name: "Node A", value: Math.floor(Math.random() * 100) },
+                  { name: "Node B", value: Math.floor(Math.random() * 100) },
+                  { name: "Node C", value: Math.floor(Math.random() * 100) },
+                  { name: "Node D", value: Math.floor(Math.random() * 100) },
+                  { name: "Node E", value: Math.floor(Math.random() * 100) }
+                ],
+                chartTitle: "Systemic Node Friction Correlation"
+            };
+        } else if (id === 'simulation_engine') {
+            currentResults[id] = {
+                agent: "simulation_agent",
+                scenario: simScenario || "Default progression (5 years)",
+                predicted_outcomes: [getSimulationResponse(selectedCountry, selectedSector)],
+                how_its_beneficial: `These implementation phases systematically reduce structural friction within the ${selectedSector} sector, directly alleviating bottlenecks and ensuring that localized investments yield sustainable long-term returns for ${selectedCountry}.`,
+                government_implementation: `The government should enact localized policy frameworks, directly funding Phase 1 diagnostic nodes and integrating transparent tracking systems over existing bureaucratic channels.`,
+                citizen_implementation: `Normal citizens and local organizations can organize community feedback loops, report regional ${selectedSector} friction, and participate in localized beta tests of the new deployed systems.`,
+                risks: ["Logistical friction", "Policy resistance"],
+                confidence: "Medium"
+            };
         }
 
-        // Waterfall Delay: 1s
-        await new Promise(resolve => setTimeout(resolve, 1000));
-      }
-
-      // If we have "enough" agents now, run orchestrator
-      // For this demo, let's run orchestrator if at least one group is complete
-      setActiveAgentId('orchestrator');
-      const orchResponse = await fetch('/api/analyze/orchestrate', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
-          results: currentResults,
-          country: selectedCountry,
-          sector: selectedSector
-        }),
-      });
-
-      const orchData = await orchResponse.json();
-      if (orchData.status === 'success') {
         setResult(prev => ({
           ...prev,
-          orchestrator: orchData.orchestrator,
-          status: 'success',
-          country: selectedCountry,
-          sector: selectedSector
+          agents: { ...prev?.agents, [id]: currentResults[id] }
         } as any));
       }
+
+      setActiveAgentId('orchestrator');
+      await new Promise(resolve => setTimeout(resolve, 500));
+      
+      setResult(prev => ({
+        ...prev,
+        orchestrator: {
+           system_score: domainData.metrics,
+           bottlenecks_identified: domainData.problems,
+           final_insights: domainData.recommendations
+        },
+        status: 'success',
+        country: selectedCountry,
+        sector: selectedSector
+      } as any));
 
     } catch (err: any) {
       console.error("Analysis failed", err);
