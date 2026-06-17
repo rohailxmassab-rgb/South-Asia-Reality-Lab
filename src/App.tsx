@@ -401,10 +401,10 @@ export default function App() {
          doc.setFont(undefined, 'normal');
          if (data) {
            let agentText = "";
-           if ((data as any).summary) agentText += (data as any).summary + "\n\n";
-           if ((data as any).patterns) agentText += (data as any).patterns.join("\n") + "\n\n";
-           if ((data as any).differences) agentText += (data as any).differences.join("\n") + "\n\n";
-           if ((data as any).predicted_outcomes) agentText += (data as any).predicted_outcomes.join("\n") + "\n\n";
+           if ((data as any).summary) agentText += (Array.isArray((data as any).summary) ? (data as any).summary.join("\n") : (data as any).summary) + "\n\n";
+           if ((data as any).patterns) agentText += (Array.isArray((data as any).patterns) ? (data as any).patterns.join("\n") : (data as any).patterns) + "\n\n";
+           if ((data as any).differences) agentText += (Array.isArray((data as any).differences) ? (data as any).differences.join("\n") : (data as any).differences) + "\n\n";
+           if ((data as any).predicted_outcomes) agentText += (Array.isArray((data as any).predicted_outcomes) ? (data as any).predicted_outcomes.join("\n") : (data as any).predicted_outcomes) + "\n\n";
            
            // Clean Markdown headers from raw text
            agentText = agentText.replace(/###/g, "").replace(/\*\*/g, "");
