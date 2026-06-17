@@ -151,14 +151,47 @@ export default function App() {
     try {
       await new Promise(resolve => setTimeout(resolve, 1500));
       
+      let md = `### 📊 Comparative Analysis\n\n`;
+      md += `**Regions Analyzed:** ${compareCountries.join(", ") || 'None'}\n\n`;
+      md += `**Sectors Analyzed:** ${compareSectors.join(", ") || 'None'}\n\n`;
+      md += `#### 💡 Competitive Insights\n\n`;
+      
+      compareSectors.forEach((sector: string) => {
+        md += `**${sector} Sector:**\n`;
+        const sKey = sector.toLowerCase();
+        compareCountries.forEach((country: string) => {
+          const cKey = country.toLowerCase().trim().replace(" ", "_");
+          const data = mockDataStore[cKey]?.[sKey];
+          if (data) {
+            const topMetric = Object.entries(data.metrics || {})[0];
+            const metricText = topMetric ? `${topMetric[0].replace(/_/g, ' ')}: ${topMetric[1]}` : 'Data unavailable';
+            md += `* **${country}:** ${metricText}. *Friction Point:* ${data.problems?.[0] || 'N/A'}\n`;
+          } else {
+            md += `* **${country}:** No isolated data available for this specific vertical.\n`;
+          }
+        });
+        md += `\n`;
+      });
+
+      md += `#### 🎯 Strategic Recommendations\n\n`;
+      if (compareCountries.length > 1) {
+        md += `* **Cross-Border Standardization:** Standardize data tracking methodologies across ${compareCountries.join(" and ")} to allow transparent evaluation.\n`;
+        md += `* **Resource Sharing:** High-performing regions should establish bilateral exchange programs targeting the infrastructural friction points identified above.\n`;
+      } else {
+        md += `* **Targeted Growth:** Focus infrastructural investments specifically on resolving the high-severity bottlenecks in ${compareCountries[0] || 'selected regions'}.\n`;
+      }
+      md += `* **Policy Agility:** Shift from reactive macro-spending to proactive, data-driven local resource allocation.\n\n`;
+
+      md += `#### 🌍 What We Can Do As A Community\n\n`;
+      md += `* **Open-Source Data Integration:** Build open data collectives to independently monitor the metrics listed above and hold regional policy-makers accountable.\n`;
+      md += `* **Hyper-Local Outreach:** Guide NGO efforts to directly address the highlighted rural/urban divides and supply chain frictions without waiting for federal funds.\n`;
+      md += `* **Skill Development:** Launch grassroots educational campaigns focused on community resilience and digital literacy, accelerating the "last-mile" delivery of services.\n`;
+
       const mockedComparisonValue = {
         agent: "comparison_agent",
-        differences: [
-           `Variance between ${compareCountries.join(" and ")} across ${compareSectors.join(", ")} is stark.`,
-           `Primary divergence in logistics allocation frameworks.`
-        ],
-        common_bottlenecks: ["Funding drop-offs in Q3", "Inter-provincial regulatory drag"],
-        recommendation: "Standardize policy exchange nodes immediately to align resource growth."
+        differences: md,
+        winner: compareCountries[0] || 'N/A',
+        reasoning: "Comparative framework applied successfully."
       };
 
       setResult(prev => ({
